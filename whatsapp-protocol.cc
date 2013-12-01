@@ -1893,7 +1893,9 @@ void WhatsappConnection::processIncomingData()
 				updateGroups();
 			}
 			/* Generate response for the messages */
-			if (treelist[i].hasAttribute("type") and treelist[i].hasAttribute("from")) {
+			if (treelist[i].hasAttribute("type") and treelist[i].hasAttribute("from") and 
+				treelist[i].hasChild("request")) {
+
 				std::string answer = "received";
 				if (treelist[i].hasChild("received"))
 					answer = "ack";
